@@ -1,0 +1,13 @@
+Ponemos nombre ususario y
+ en contraseña(nos borra base de datos):
+12323213');DROP DATABASE contacts_app; --
+
+VOy video ¿Cómo reutilizar HTML con PHP?
+
+Selecciono y con shift tab tabulo seleccion hacia la izquierda bueno
+
+Ruta imagen y css:
+
+index.php y add.php:
+ <link rel="stylesheet" href="./static2/css/index.css" />
+ <img class="mr-2" src="./static2/img/logo.png" />

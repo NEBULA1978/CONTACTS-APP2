@@ -1,0 +1,566 @@
+CURSO DE DOCKER - Crear una Base de Datos MySQL en DOCKER 🐳
+
+sudo apt install mysql-server
+
+docker run --name database -e MYSQL_ROOT_PASSWORD=123123 -d mysql
+
+next@rases:~/Documentos/mysql-docker$ docker run --name database -e MYSQL_ROOT_PASSWORD=123123 -d mysql
+31a20b4db521317ea9be0023a6a0e4286435f8dd65ad560d3ac5df3bfaef5325
+next@rases:~/Documentos/mysql-docker$ docker ps -a
+CONTAINER ID   IMAGE                 COMMAND                  CREATED          STATUS                     PORTS                 NAMES
+31a20b4db521   mysql                 "docker-entrypoint.s…"   16 seconds ago   Up 14 seconds              3306/tcp, 33060/tcp   database
+
+Esta corriendo en el puerto 3306:
+next@rases:~/Documentos/mysql-docker$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                 NAMES
+31a20b4db521   mysql     "docker-entrypoint.s…"   58 seconds ago   Up 57 seconds   3306/tcp, 33060/tcp   database
+next@rases:~/Documentos/mysql-docker$ 
+
+
+//////////////////////////////////////////////////////////////////////////
+
+next@rases:~/Documentos/mysql-docker$ docker inspect database
+[
+    {
+        "Id": "31a20b4db521317ea9be0023a6a0e4286435f8dd65ad560d3ac5df3bfaef5325",
+        "Created": "2023-05-31T13:42:27.839768768Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "mysqld"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 15168,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2023-05-31T13:42:28.227136763Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:8189e588b0e8fcc95b0d764d6f7bdb55b5b41e9249157177d73781058f603ca9",
+        "ResolvConfPath": "/var/lib/docker/containers/31a20b4db521317ea9be0023a6a0e4286435f8dd65ad560d3ac5df3bfaef5325/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/31a20b4db521317ea9be0023a6a0e4286435f8dd65ad560d3ac5df3bfaef5325/hostname",
+        "HostsPath": "/var/lib/docker/containers/31a20b4db521317ea9be0023a6a0e4286435f8dd65ad560d3ac5df3bfaef5325/hosts",
+        "LogPath": "/var/lib/docker/containers/31a20b4db521317ea9be0023a6a0e4286435f8dd65ad560d3ac5df3bfaef5325/31a20b4db521317ea9be0023a6a0e4286435f8dd65ad560d3ac5df3bfaef5325-json.log",
+        "Name": "/database",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "KernelMemory": 0,
+            "KernelMemoryTCP": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/54d7749ab46fe520fc56b1feff876e8581d266b79245727a74c20c36bd598721-init/diff:/var/lib/docker/overlay2/0f9f0095b02f13d537786719611d06deaf416dc04d103a4a87756d1c8afb355d/diff:/var/lib/docker/overlay2/9d69e49c4a61b98ff52b21c6605d7570cfd602b0afdaab62624fe3e121e3e0cb/diff:/var/lib/docker/overlay2/2ded456196ab1a89da987149c2cb7173fbd31b872c8db1be47a97fe094d82c4a/diff:/var/lib/docker/overlay2/b642e34adc33e6820e3d8c6c928e3d0395551b27e737cbe8369627e7e8833adf/diff:/var/lib/docker/overlay2/51e80153db7f318999b7f32264fb4fa9dbd2656a7f2a7a3c9807d70c1b498e3e/diff:/var/lib/docker/overlay2/43b95a7148e15f22fcb0391f6c4283ad313968784063a50e5d725f8b317a5bd1/diff:/var/lib/docker/overlay2/5594297af1a2c82ac5b318e6faf01184a1fdf7396952cb73b6601b78f8ffaaf0/diff:/var/lib/docker/overlay2/e40ce372610c910aa1d48525db10f40775f691cb7e5284eee053945747db442f/diff:/var/lib/docker/overlay2/59b0389f0451a9611269904bc8819cccd6cf7fb1682a3072897e907bb0fd59d7/diff:/var/lib/docker/overlay2/232313bdca5079194a9cce112fd0f0aa81524dd038eaf2f1f70ccd7735e0fb9d/diff:/var/lib/docker/overlay2/61a03b679df7f00f07f0f902f1574fdcf37220d7a09dfd5f702f7249b3692883/diff",
+                "MergedDir": "/var/lib/docker/overlay2/54d7749ab46fe520fc56b1feff876e8581d266b79245727a74c20c36bd598721/merged",
+                "UpperDir": "/var/lib/docker/overlay2/54d7749ab46fe520fc56b1feff876e8581d266b79245727a74c20c36bd598721/diff",
+                "WorkDir": "/var/lib/docker/overlay2/54d7749ab46fe520fc56b1feff876e8581d266b79245727a74c20c36bd598721/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "de1c9e6aa8de9a63c835b831c469705b525854d572f7a5fe0c41430ab184a277",
+                "Source": "/var/lib/docker/volumes/de1c9e6aa8de9a63c835b831c469705b525854d572f7a5fe0c41430ab184a277/_data",
+                "Destination": "/var/lib/mysql",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "31a20b4db521",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "3306/tcp": {},
+                "33060/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "MYSQL_ROOT_PASSWORD=123123",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.16",
+                "MYSQL_MAJOR=8.0",
+                "MYSQL_VERSION=8.0.33-1.el8",
+                "MYSQL_SHELL_VERSION=8.0.33-1.el8"
+            ],
+            "Cmd": [
+                "mysqld"
+            ],
+            "Image": "mysql",
+            "Volumes": {
+                "/var/lib/mysql": {}
+            },
+            "WorkingDir": "",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "78b9806643a8cdef4f59df28c11d8e37b532121e63515b924f86e826497bdd56",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "3306/tcp": null,
+                "33060/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/78b9806643a8",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "1d844ef1d3ff0d01195237522a58ffbac5d157158f9dfb0ebd8f28d86c0ccb9f",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.2",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:02",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "2f13be95e5c0c2d85c01b1716b118f3bcc80cf16b3abd15bbacd78935738091a",
+                    "EndpointID": "1d844ef1d3ff0d01195237522a58ffbac5d157158f9dfb0ebd8f28d86c0ccb9f",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+next@rases:~/Documentos/mysql-docker$ 
+
+/////////////////////////////////////////////////////////////////////////
+
+copiamos ip 172.17.0.2
+
+next@rases:~/Documentos/mysql-docker$ mysql -u root -h 172.17.0.2 -p123123
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.33 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> 
+
+///////////////////////////////////////////////////
+
+Para entrar en mysql desde consola:
+
+next@rases:~$ mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.24-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> Bye
+next@rases:~$ mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 10
+Server version: 10.4.24-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> 
+
+//////////////////////////////////////
+//////////////////////////////////////
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| blog_master        |
+| contacts_app       |
+| electrondb         |
+| information_schema |
+| library            |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| registro           |
+| test               |
++--------------------+
+10 rows in set (0.006 sec)
+
+MariaDB [(none)]> 
+
+////////////////////////////////////
+Eliminar base de Datos
+
+MariaDB [(none)]> drop database contacts_app
+    -> ;
+Query OK, 0 rows affected, 2 warnings (0.016 sec)
+
+MariaDB [(none)]> 
+
+
+////////////////////////////////////
+MariaDB [(none)]> create database contacts_app
+    -> ;
+Query OK, 1 row affected (0.000 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| blog_master        |
+| contacts_app       |
+| electrondb         |
+| information_schema |
+| library            |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| registro           |
+| test               |
++--------------------+
+10 rows in set (0.001 sec)
+
+MariaDB [(none)]> 
+
+
+////////////////////////////////////
+MariaDB [(none)]> use contacts_app;
+Database changed
+MariaDB [contacts_app]> 
+
+////////////////////////////////////
+MariaDB [contacts_app]> CREATE TABLE contacts (     id INT AUTO_INCREMENT PRIMARY KEY,     name VARCHAR(255),     phone_number VARCHAR(255) );
+Query OK, 0 rows affected (0.026 sec)
+
+MariaDB [contacts_app]> show tables;
++------------------------+
+| Tables_in_contacts_app |
++------------------------+
+| contacts               |
++------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [contacts_app]> 
+
+////////////////////////////////////
+MariaDB [contacts_app]> describe contacts;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name         | varchar(255) | YES  |     | NULL    |                |
+| phone_number | varchar(255) | YES  |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+3 rows in set (0.001 sec)
+
+MariaDB [contacts_app]> 
+
+////////////////////////////////////
+MariaDB [contacts_app]> INSERT INTO contacts (name, phone_number) VALUES ("Pepe", "123456789");
+Query OK, 1 row affected (0.012 sec)
+
+MariaDB [contacts_app]> 
+
+////////////////////////////////////
+
+Para ver id y ususarios:
+
+MariaDB [contacts_app]> INSERT INTO contacts (name, phone_number) VALUES ("Luis", "123456789");
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [contacts_app]> select id,name,phone_number from contacts;
++----+------+--------------+
+| id | name | phone_number |
++----+------+--------------+
+|  1 | Pepe | 123456789    |
+|  2 | Pepe | 123456789    |
+|  3 | Luis | 123456789    |
++----+------+--------------+
+3 rows in set (0.000 sec)
+
+MariaDB [contacts_app]> 
+
+////////////////////////////////////
+MariaDB [contacts_app]> select name,name,phone_number from contacts;
++------+------+--------------+
+| name | name | phone_number |
++------+------+--------------+
+| Pepe | Pepe | 123456789    |
+| Pepe | Pepe | 123456789    |
+| Luis | Luis | 123456789    |
++------+------+--------------+
+3 rows in set (0.000 sec)
+
+MariaDB [contacts_app]> 
+
+
+////////////////////////////////////
+MariaDB [contacts_app]> select name,phone_number from contacts;
++------+--------------+
+| name | phone_number |
++------+--------------+
+| Pepe | 123456789    |
+| Pepe | 123456789    |
+| Luis | 123456789    |
++------+--------------+
+3 rows in set (0.001 sec)
+
+MariaDB [contacts_app]> 
+
+////////////////////////////////////
+MariaDB [contacts_app]> select phone_number from contacts;
++--------------+
+| phone_number |
++--------------+
+| 123456789    |
+| 123456789    |
+| 123456789    |
++--------------+
+3 rows in set (0.000 sec)
+
+MariaDB [contacts_app]> 
+
+////////////////////////////////////
+MariaDB [contacts_app]> update contacts set name = "Luis" where name= "Pepe2";
+Query OK, 0 rows affected (0.001 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+MariaDB [contacts_app]> 
+
+
+////////////////////////////////////
+Borrar ususario de tabla
+
+MariaDB [contacts_app]> DELETE FROM contacts WHERE name = 'Pepe';
+Query OK, 2 rows affected (0.004 sec)
+
+MariaDB [contacts_app]> 
+
+
+MariaDB [contacts_app]> select id,name,phone_number from contacts;
++----+-------+--------------+
+| id | name  | phone_number |
++----+-------+--------------+
+|  3 | Luis  | 123456789    |
+|  4 | Pedro | 123456789    |
++----+-------+--------------+
+2 rows in set (0.001 sec)
+
+MariaDB [contacts_app]> 
+
+
+////////////////////////////////////
+Para cambiar el nombre "Luis" por "Jose" en la tabla de MariaDB en Linux Mint, puedes utilizar la siguiente consulta:
+UPDATE contacts SET name = 'Jose' WHERE name = 'Luis';
+
+MariaDB [contacts_app]> UPDATE contacts SET name = 'Jose' WHERE name = 'Luis';
+Query OK, 1 row affected (0.003 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [contacts_app]> select id,name,phone_number from contacts;
++----+----------+--------------+
+| id | name     | phone_number |
++----+----------+--------------+
+|  3 | Jose     | 123456789    |
+|  4 | Pedro    | 123456789    |
+|  5 | Pere     | 123456789    |
+|  6 | Pereluis | 123456789    |
++----+----------+--------------+
+4 rows in set (0.001 sec)
+
+MariaDB [contacts_app]> 
+
+////////////////////////////////////
+MariaDB [contacts_app]> SELECT id, name, phone_number FROM contacts WHERE id IN (3, 4);
++----+-------+--------------+
+| id | name  | phone_number |
++----+-------+--------------+
+|  3 | Jose  | 123456789    |
+|  4 | Pedro | 123456789    |
++----+-------+--------------+
+2 rows in set (0.001 sec)
+
+MariaDB [contacts_app]> 
+
+////////////////////////////////////
+Para iniciar mysql desde archivo voy a carpeta y ejecuto:
+
+MariaDB [(none)]> source setup.sql;
+Query OK, 1 row affected, 2 warnings (0.019 sec)
+
+Query OK, 1 row affected (0.000 sec)
+
+Database changed
+Query OK, 0 rows affected (0.016 sec)
+
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [contacts_app]> 
+////////////////////////////////////
+MariaDB [contacts_app]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| blog_master        |
+| contacts_app       |
+| electrondb         |
+| information_schema |
+| library            |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| registro           |
+| test               |
++--------------------+
+10 rows in set (0.001 sec)
+
+MariaDB [contacts_app]> use contacts_app; 
+Database changed
+MariaDB [contacts_app]> show tables;
++------------------------+
+| Tables_in_contacts_app |
++------------------------+
+| contacts               |
++------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [contacts_app]> select * from contacts;
++----+------+--------------+
+| id | name | phone_number |
++----+------+--------------+
+|  1 | Pepe | 123456789    |
++----+------+--------------+
+1 row in set (0.001 sec)
+
+MariaDB [contacts_app]> 
+////////////////////////////////////
+
+////////////////////////////////////
+////////////////////////////////////
