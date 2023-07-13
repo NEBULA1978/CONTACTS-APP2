@@ -22,6 +22,8 @@
 
   <!-- Static Content -->
   <link rel="stylesheet" href="./index.css" />
+  <script defer src="./welcome.js"></script>
+  
 
   <title>Contacts App</title>
 </head>
