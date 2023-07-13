@@ -561,6 +561,8 @@ MariaDB [contacts_app]> select * from contacts;
 
 MariaDB [contacts_app]> 
 ////////////////////////////////////
-
+Para ver la ruta:
+ <?php var_dump($_SERVER["REQUEST_URI"]);
+ 
 ////////////////////////////////////
 ////////////////////////////////////
