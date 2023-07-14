@@ -3,6 +3,10 @@
 }
 .welcome {
     background: url('./background.jpg');
-    background-position: center center;
+    background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
