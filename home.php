@@ -2,6 +2,13 @@
 
 require "database.php";
 
+session_start();
+
+if (!isset($_SESSION["user"])) {
+  header("Location: login.php");
+  return;
+}
+
 $contacts = $conn->query("SELECT * FROM contacts");
 
 ?>
@@ -35,4 +42,4 @@ $contacts = $conn->query("SELECT * FROM contacts");
   </div>
 </div>
 
-<?php require "partials/footer.php" ?>
+<?php require "footer.php" ?>

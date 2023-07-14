@@ -565,4 +565,6 @@ Para ver la ruta:
  <?php var_dump($_SERVER["REQUEST_URI"]);
  
 ////////////////////////////////////
+
+video Tabla de usuarios y formulario de registro min 2:41
 ////////////////////////////////////

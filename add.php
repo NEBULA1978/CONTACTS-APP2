@@ -65,5 +65,5 @@
   </div>
 </div>
 
-<?php require "partials/footer.php" ?>
+<?php require "footer.php" ?>
 

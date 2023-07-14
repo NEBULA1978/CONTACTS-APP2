@@ -38,7 +38,7 @@
   }
 ?>
 
-<?php require "partials/header.php" ?>
+<?php require "header.php" ?>
 
 <div class="container pt-5">
   <div class="row justify-content-center">
@@ -80,5 +80,5 @@
   </div>
 </div>
 
-<?php require "partials/footer.php" ?>
+<?php require "footer.php" ?>
 
