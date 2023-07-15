@@ -47,6 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       ":phone_number" => $_POST["phone_number"],
     ]);
 
+    $_SESSION["flash"] = ["message" => "Contact {$_POST['name']} added."];
+
     header("Location: home.php");
   }
 }
