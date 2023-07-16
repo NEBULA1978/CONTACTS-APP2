@@ -13,12 +13,12 @@ $contacts = $conn->query("SELECT * FROM contacts WHERE user_id = {$_SESSION['use
 
 ?>
 
-<?php require "./header.php" ?>
+<?php require "partials/header.php" ?>
 
 <div class="container pt-4 p-3">
   <div class="row">
-    
-    <?php if ($contacts->rowCount() == 0): ?>
+
+    <?php if ($contacts->rowCount() == 0) : ?>
       <div class="col-md-4 mx-auto">
         <div class="card card-body text-center">
           <p>No contacts saved yet</p>
@@ -26,7 +26,7 @@ $contacts = $conn->query("SELECT * FROM contacts WHERE user_id = {$_SESSION['use
         </div>
       </div>
     <?php endif ?>
-    <?php foreach ($contacts as $contact): ?>
+    <?php foreach ($contacts as $contact) : ?>
       <div class="col-md-4 mb-3">
         <div class="card text-center">
           <div class="card-body">
@@ -42,4 +42,4 @@ $contacts = $conn->query("SELECT * FROM contacts WHERE user_id = {$_SESSION['use
   </div>
 </div>
 
-<?php require "footer.php" ?>
+<?php require "partials/footer.php" ?>

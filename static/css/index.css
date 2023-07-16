@@ -1,0 +1,12 @@
+.navbar img {
+    width: 1.2rem;
+}
+.welcome {
+    background: url('./background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}

@@ -1,4 +1,4 @@
-<?php require "./header.php" ?>
+<?php require "partials/header.php" ?>
 
 <div class="welcome d-flex align-items-center justify-content-center">
   <div class="text-center">
@@ -7,4 +7,4 @@
   </div>
 </div>
 
-<?php require "footer.php" ?>
+<?php require "partials/footer.php" ?>
