@@ -48,9 +48,3 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">: Crea un botón para mostrar u ocultar el menú de navegación en dispositivos móviles.
 
     <div class="collapse navbar-collapse" id="navbarNav">: Define un contenedor para el menú de navegación.
-
-    <?php if (isset($_SESSION["user"])) : ?>: Verifica si el usuario ha iniciado sesión.
-
-    <?php else : ?>: En caso de que el usuario no haya iniciado sesión.
-
-    <?= $_SESSION["user"]["email"] ?>: Imprime el correo electrónico del usuario actual. -->
