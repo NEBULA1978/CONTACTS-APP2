@@ -1,0 +1,83 @@
+<?php
+
+require "database.php";
+
+// Iniciar sesión
+session_start();
+
+// Verificar si el usuario no ha iniciado sesión
+if (!isset($_SESSION["user"])) {
+  header("Location: login.php"); // Redirigir al usuario a la página de inicio de sesión
+  return;
+}
+
+// Obtener los contactos del usuario actual
+$contacts = $conn->query("SELECT * FROM contacts WHERE user_id = {$_SESSION['user']['id']}");
+
+?>
+
+<?php require "partials/header.php" ?>
+
+<div class="container pt-4 p-3">
+  <div class="row">
+
+    <?php if ($contacts->rowCount() == 0) : ?>
+      <!-- Mostrar un mensaje si no hay contactos guardados -->
+      <div class="col-md-4 mx-auto">
+        <div class="card card-body text-center">
+          <p>No contacts saved yet</p>
+          <a href="add.php">Add One!</a>
+        </div>
+      </div>
+    <?php endif ?>
+    
+    <?php foreach ($contacts as $contact) : ?>
+      <!-- Mostrar cada contacto en una tarjeta -->
+      <div class="col-md-4 mb-3">
+        <div class="card text-center">
+          <div class="card-body">
+            <h3 class="card-title text-capitalize"><?= $contact["name"] ?></h3>
+            <p class="m-2"><?= $contact["phone_number"] ?></p>
+            <a href="edit.php?id=<?= $contact["id"] ?>" class="btn btn-secondary mb-2">Edit Contact</a>
+            <a href="delete.php?id=<?= $contact["id"] ?>" class="btn btn-danger mb-2">Delete Contact</a>
+          </div>
+        </div>
+      </div>
+    <?php endforeach ?>
+
+  </div>
+</div>
+
+<?php require "partials/footer.php" ?>
+
+Aquí están los comentarios para cada sección del código:
+
+    require "database.php";: Esta línea incluye el archivo "database.php", que se supone que contiene la configuración y la conexión a la base de datos.
+
+    session_start();: Esta función se utiliza para iniciar la sesión y permitir el acceso a la variable $_SESSION.
+
+    if (!isset($_SESSION["user"])) {: Verifica si el usuario ha iniciado sesión. Si no ha iniciado sesión, se redirige al usuario a la página de inicio de sesión utilizando header("Location: login.php"); y se detiene la ejecución del resto del código utilizando return;.
+
+    $contacts = $conn->query("SELECT * FROM contacts WHERE user_id = {$_SESSION['user']['id']}");: Se realiza una consulta para obtener los contactos del usuario actual utilizando su ID de usuario almacenado en $_SESSION['user']['id'].
+
+    <div class="container pt-4 p-3">: Este div es un contenedor para la sección de contactos y tiene clases de estilo CSS para agregar espaciado en la parte superior (pt-4) y espaciado general (p-3).
+
+    <?php if ($contacts->rowCount() == 0) : ?>: Verifica si no hay contactos encontrados utilizando la función rowCount() en el objeto $contacts. Si no hay contactos, se muestra un mensaje y un enlace para agregar un contacto.
+
+    <div class="col-md-4 mx-auto">: Este div es un contenedor para la tarjeta que muestra el mensaje cuando no hay contactos. Utiliza las clases de estilo CSS col-md-4 para ocupar 4 columnas en dispositivos medianos y mx-auto para centrar horizontalmente el contenido.
+
+    <?php foreach ($contacts as $contact) : ?>: Itera sobre cada contacto en la variable $contacts utilizando un bucle foreach. Para cada contacto, se muestra una tarjeta con su nombre, número de teléfono y enlaces para editar y eliminar.
+
+    <div class="col-md-4 mb-3">: Este div es un contenedor para cada tarjeta de contacto. Utiliza las clases de estilo CSS col-md-4 para ocupar 4 columnas en dispositivos medianos y mb-3 para agregar espaciado en la parte inferior.
+
+    <h3 class="card-title text-capitalize"><?= $contact["name"] ?></h3>: Muestra el nombre del contacto en el encabezado de la tarjeta. Utiliza la función text-capitalize para convertir la primera letra en mayúscula.
+
+    <p class="m-2"><?= $contact["phone_number"] ?></p>: Muestra el número de teléfono del contacto en un párrafo con un margen de 2 unidades.
+
+    <a href="edit.php?id=<?= $contact["id"] ?>" class="btn btn-secondary mb-2">Edit Contact</a>: Muestra un enlace para editar el contacto. El enlace incluye el ID del contacto en la URL para identificar qué contacto se debe editar.
+
+    <a href="delete.php?id=<?= $contact["id"] ?>" class="btn btn-danger mb-2">Delete Contact</a>: Muestra un enlace para eliminar el contacto. El enlace incluye el ID del contacto en la URL para identificar qué contacto se debe eliminar.
+
+    <?php require "partials/footer.php" ?>: Esta línea incluye el archivo "footer.php", que se supone que contiene la parte inferior de la estructura HTML de la página, como los scripts JavaScript, el pie de página y otros elementos comunes a todas las páginas.
+
+Espero que estos comentarios adicionales te sean útiles. Si tienes más preguntas, no dudes en hacerlas.

@@ -1,0 +1,28 @@
+<?php require "partials/header.php"; ?>
+
+<!-- Sección de bienvenida -->
+<div class="welcome d-flex align-items-center justify-content-center">
+  <div class="text-center">
+    <h1>Store Your Contacts Now</h1>
+    <a class="btn btn-lg btn-dark" href="register.php">Get Started</a>
+  </div>
+</div>
+
+<?php require "partials/footer.php"; ?>
+
+Aquí están los comentarios para cada sección del código:
+
+    <?php require "partials/header.php"; ?>: Esta línea incluye el archivo "header.php", que se supone que contiene la parte superior de la estructura HTML de la página, como la declaración <!DOCTYPE html>, el encabezado <head>, la barra de navegación y otros elementos comunes a todas las páginas.
+
+    <!-- Sección de bienvenida -->: Este comentario indica que la siguiente sección es la sección de bienvenida en el código HTML.
+
+    <div class="welcome d-flex align-items-center justify-content-center">: Este div es un contenedor que se utiliza para centrar vertical y horizontalmente su contenido. Esto se logra aplicando las clases CSS d-flex, align-items-center y justify-content-center al div.
+
+    <div class="text-center">: Este div es un contenedor para el contenido de la sección de bienvenida y se centra horizontalmente utilizando la clase CSS text-center.
+
+    <h1>Store Your Contacts Now</h1>: Este es un encabezado de nivel 1 que muestra el título de la sección de bienvenida. El texto "Store Your Contacts Now" se muestra como el mensaje principal en la página.
+
+    <a class="btn btn-lg btn-dark" href="register.php">Get Started</a>: Este es un enlace (<a>) que se presenta como un botón utilizando las clases CSS btn, btn-lg y btn-dark. El enlace apunta a "register.php", lo que significa que cuando el usuario haga clic en el botón "Get Started", se dirigirá a la página de registro.
+
+    <?php require "partials/footer.php"; ?>: Esta línea incluye el archivo "footer.php", que se supone que contiene la parte inferior de la estructura HTML de la página, como los scripts JavaScript, el pie de página y otros elementos comunes a todas las páginas.
+

@@ -38,3 +38,19 @@
     </div>
   </div>
 </nav>
+
+<!-- Aquí están los comentarios para cada sección del código:
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">: Define una barra de navegación con un estilo oscuro.
+
+    <a class="navbar-brand font-weight-bold" href="index.php">: Crea un elemento de marca para la barra de navegación con un texto "ContactsApp" y un enlace al archivo "index.php".
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">: Crea un botón para mostrar u ocultar el menú de navegación en dispositivos móviles.
+
+    <div class="collapse navbar-collapse" id="navbarNav">: Define un contenedor para el menú de navegación.
+
+    <?php if (isset($_SESSION["user"])) : ?>: Verifica si el usuario ha iniciado sesión.
+
+    <?php else : ?>: En caso de que el usuario no haya iniciado sesión.
+
+    <?= $_SESSION["user"]["email"] ?>: Imprime el correo electrónico del usuario actual. -->
